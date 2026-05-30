@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Castle, Map, Clock, Compass, Heart, Swords } from 'lucide-react';
+import { Castle, Map, Clock, Compass, Heart, Swords, BookOpen } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { ui } from '../data/i18n';
 
@@ -13,6 +13,7 @@ export default function Navbar() {
     { to: '/map', label: t(ui.map), icon: Map },
     { to: '/timeline', label: t(ui.timeline), icon: Clock },
     { to: '/heroes', label: t(ui.heroes), icon: Swords },
+    { to: '/quiz', label: t({ mr: 'प्रश्नमंजुषा', en: 'Quiz' }), icon: BookOpen },
     { to: '/passport', label: t(ui.passport), icon: Heart },
   ];
 

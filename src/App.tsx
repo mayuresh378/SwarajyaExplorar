@@ -9,6 +9,7 @@ import MapPage from './pages/MapPage';
 import Timeline from './pages/Timeline';
 import Passport from './pages/Passport';
 import Heroes from './pages/Heroes';
+import Quiz from './pages/Quiz';
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
               <Route path="/timeline" element={<Timeline />} />
               <Route path="/passport" element={<Passport />} />
               <Route path="/heroes" element={<Heroes />} />
+              <Route path="/quiz" element={<Quiz />} />
             </Routes>
           </div>
         </BrowserRouter>
