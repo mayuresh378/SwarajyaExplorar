@@ -18,57 +18,56 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="heritage-gradient text-white shadow-lg sticky top-0 z-50">
+    <nav className="sticky top-0 z-50 backdrop-blur-md border-b border-amber-900/20" style={{ background: 'rgba(15, 12, 8, 0.95)' }}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2">
-            <Castle className="w-8 h-8 text-orange-400" />
-            <span className="text-xl font-bold tracking-tight">
-              {language === 'mr' ? 'स्वराज्य एक्सप्लोरर' : 'Swarajya Explorer'}
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <div className="w-9 h-9 rounded-md bg-gradient-to-br from-amber-600 to-orange-700 flex items-center justify-center shadow-lg shadow-orange-900/30">
+              <Castle className="w-5 h-5 text-amber-100" />
+            </div>
+            <span className="text-lg font-bold text-amber-100 tracking-tight group-hover:text-amber-50 transition-colors">
+              {language === 'mr' ? 'स्वराज्य' : 'Swarajya'}
             </span>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-0.5">
             {links.map(({ to, label, icon: Icon }) => (
               <Link
                 key={to}
                 to={to}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                   location.pathname === to
-                    ? 'bg-orange-700 text-white'
-                    : 'text-stone-300 hover:bg-stone-700/50 hover:text-white'
+                    ? 'bg-amber-900/40 text-amber-300 border border-amber-700/30'
+                    : 'text-stone-400 hover:text-amber-200 hover:bg-amber-900/20'
                 }`}
               >
-                <Icon className="w-4 h-4" />
+                <Icon className="w-3.5 h-3.5" />
                 {label}
               </Link>
             ))}
           </div>
 
-          <div className="flex items-center gap-2">
-            {/* Language Switcher */}
-            <button
-              onClick={() => setLanguage(language === 'mr' ? 'en' : 'mr')}
-              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-orange-700/80 hover:bg-orange-600 transition-colors border border-orange-500/30"
-            >
-              {language === 'mr' ? 'EN' : 'मरा'}
-            </button>
-          </div>
+          <button
+            onClick={() => setLanguage(language === 'mr' ? 'en' : 'mr')}
+            className="px-3 py-1.5 rounded-md text-xs font-bold text-amber-300 border border-amber-700/40 hover:bg-amber-900/30 hover:border-amber-600/50 transition-all"
+          >
+            {language === 'mr' ? 'EN' : 'मरा'}
+          </button>
         </div>
 
         {/* Mobile nav */}
-        <div className="lg:hidden flex items-center gap-1 pb-2 overflow-x-auto">
+        <div className="lg:hidden flex items-center gap-1 pb-2 overflow-x-auto scrollbar-hide">
           {links.map(({ to, label, icon: Icon }) => (
             <Link
               key={to}
               to={to}
-              className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${
+              className={`flex items-center gap-1 px-2.5 py-1.5 rounded-md text-xs font-medium whitespace-nowrap transition-all ${
                 location.pathname === to
-                  ? 'bg-orange-700 text-white'
-                  : 'text-stone-400 hover:text-white'
+                  ? 'bg-amber-900/40 text-amber-300'
+                  : 'text-stone-500 hover:text-amber-300'
               }`}
             >
-              <Icon className="w-3.5 h-3.5" />
+              <Icon className="w-3 h-3" />
               {label}
             </Link>
           ))}

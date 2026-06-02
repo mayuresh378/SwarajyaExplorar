@@ -16,7 +16,7 @@ export default function App() {
     <LanguageProvider>
       <UserProvider>
         <BrowserRouter>
-          <div className="min-h-screen bg-amber-50/30">
+          <div className="min-h-screen" style={{ background: '#0f0c08' }}>
             <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
