@@ -166,3 +166,82 @@
 .animate-scroll-indicator {
   animation: scrollBounce 1.8s ease-in-out infinite;
 }
+
+/* ===== CINEMATIC HERO LAYERS ===== */
+
+/* Layer 1: Dark stone texture */
+.hero-stone-texture {
+  background-color: #0F172A;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(30, 41, 59, 0.8), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(28, 25, 23, 0.6), transparent 40%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6'%3E%3Cpath fill='%23ffffff' fill-opacity='0.02' d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/svg%3E");
+}
+
+/* Layer 2: Swarajya map watermark */
+.hero-map-watermark {
+  background-image: url("data:image/svg+xml,%3Csvg width='600' height='600' viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23FBBF24' stroke-width='1' stroke-opacity='0.5'%3E%3Cpath d='M150 200 L200 150 L280 180 L350 140 L420 200 L450 280 L400 350 L420 420 L350 460 L280 440 L200 470 L150 400 L130 320 Z'/%3E%3Ccircle cx='200' cy='200' r='4'/%3E%3Ccircle cx='350' cy='180' r='4'/%3E%3Ccircle cx='420' cy='300' r='4'/%3E%3Ccircle cx='280' cy='440' r='4'/%3E%3Ccircle cx='180' cy='350' r='4'/%3E%3Cpath d='M200 200 L350 180 M350 180 L420 300 M420 300 L280 440 M280 440 L180 350 M180 350 L200 200' stroke-dasharray='4 6'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* Layer 4: Atmospheric fog */
+.hero-fog {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(217, 119, 6, 0.12), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 30% 90%, rgba(248, 250, 252, 0.04), transparent 60%);
+}
+
+@keyframes fogDrift {
+  0% { transform: translateX(-5%) translateY(0); opacity: 0.4; }
+  50% { transform: translateX(5%) translateY(-2%); opacity: 0.6; }
+  100% { transform: translateX(-5%) translateY(0); opacity: 0.4; }
+}
+.animate-fog {
+  animation: fogDrift 18s ease-in-out infinite;
+}
+
+@keyframes fogDriftSlow {
+  0% { transform: translateX(8%) translateY(0); opacity: 0.3; }
+  50% { transform: translateX(-6%) translateY(-3%); opacity: 0.5; }
+  100% { transform: translateX(8%) translateY(0); opacity: 0.3; }
+}
+.animate-fog-slow {
+  animation: fogDriftSlow 26s ease-in-out infinite;
+}
+
+/* Golden sunrise glow */
+.hero-sunrise {
+  background: radial-gradient(ellipse 70% 60% at 75% 25%, rgba(251, 191, 36, 0.25), rgba(217, 119, 6, 0.1) 40%, transparent 70%);
+}
+
+/* Floating particles */
+@keyframes floatParticle {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-10vh) translateX(40px); opacity: 0; }
+}
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.9), rgba(251, 191, 36, 0));
+  pointer-events: none;
+  animation: floatParticle linear infinite;
+}
+
+/* Parchment texture */
+.hero-parchment {
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(245, 230, 202, 0.04), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+@keyframes kenBurns {
+  0% { transform: scale(1.1) translate(0, 0); }
+  100% { transform: scale(1.25) translate(-2%, -2%); }
+}
+.animate-ken-burns {
+  animation: kenBurns 25s ease-out infinite alternate;
+}

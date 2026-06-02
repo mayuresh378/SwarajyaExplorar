@@ -8,6 +8,7 @@ import { ui } from '../data/i18n';
 import FortCard from '../components/FortCard';
 import { Reveal } from '../components/Reveal';
 import { Counter } from '../components/Counter';
+import { Particles } from '../components/Particles';
 
 export default function Home() {
   const { t } = useLanguage();
@@ -16,39 +17,62 @@ export default function Home() {
 
   return (
     <div className="overflow-hidden">
-      {/* ============ HERO ============ */}
+      {/* ============ CINEMATIC HERO ============ */}
       <section className="relative min-h-screen flex items-center">
-        <div className="absolute inset-0">
-          <motion.img
-            initial={{ scale: 1.15 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 2.5, ease: 'easeOut' }}
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Raigad_Fort_Aerial.jpg/1280px-Raigad_Fort_Aerial.jpg"
-            alt=""
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/70 to-slate-900/40"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/30"></div>
-          <div className="absolute inset-0 pattern-overlay"></div>
+        {/* Layer 1: Dark stone texture base */}
+        <div className="absolute inset-0 hero-stone-texture"></div>
+
+        {/* Layer 2: Swarajya map watermark */}
+        <div className="absolute inset-0 hero-map-watermark opacity-[0.07] animate-fog-slow"></div>
+
+        {/* Layer 3: Cinematic fort photography */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 animate-ken-burns">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Raigad_Fort_Aerial.jpg/1280px-Raigad_Fort_Aerial.jpg"
+              alt="Raigad Fort"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          {/* Cinematic color grade + depth */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/75 to-slate-900/45"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-slate-900/40"></div>
+          {/* Mountain depth vignette */}
+          <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 200px 60px rgba(15, 23, 42, 0.9)' }}></div>
         </div>
 
+        {/* Golden sunrise lighting */}
+        <div className="absolute inset-0 hero-sunrise"></div>
+
+        {/* Layer 4: Atmospheric fog */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/2 hero-fog animate-fog"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-2/3 hero-fog animate-fog-slow"></div>
+
+        {/* Parchment grain */}
+        <div className="absolute inset-0 hero-parchment opacity-60"></div>
+
+        {/* Floating golden particles */}
+        <Particles count={20} />
+
+        {/* Content */}
         <div className="container-premium relative z-10 pt-20">
           <div className="max-w-3xl">
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="eyebrow mb-6"
+              className="flex items-center gap-3 mb-7"
             >
-              <span className="w-8 h-px" style={{ background: 'var(--gold)' }}></span>
-              {t({ mr: 'डिजिटल वारसा अनुभव', en: 'Digital Heritage Experience' })}
-            </motion.p>
+              <span className="w-10 h-px" style={{ background: 'linear-gradient(90deg, var(--gold), transparent)' }}></span>
+              <span className="eyebrow">{t({ mr: 'डिजिटल वारसा अनुभव', en: 'Digital Heritage Experience' })}</span>
+            </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.45 }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] text-white"
+              transition={{ duration: 0.9, delay: 0.45 }}
+              className="text-5xl sm:text-6xl lg:text-[5.5rem] font-bold leading-[1.0] text-white"
+              style={{ textShadow: '0 4px 40px rgba(0,0,0,0.5)' }}
             >
               {t({ mr: 'स्वराज्याचा', en: 'Explore the' })}<br />
               <span className="gold-text">{t({ mr: 'वारसा शोधा', en: 'Legacy of Swarajya' })}</span>
@@ -57,7 +81,7 @@ export default function Home() {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.9, delay: 0.6 }}
               className="mt-8 text-lg md:text-xl text-slate-300 leading-relaxed max-w-xl"
             >
               {t({ mr: 'महाराष्ट्राच्या महान किल्ल्यांचा, कथांचा, लढायांचा आणि वारसा अनुभवांचा प्रवास.', en: "Journey through Maharashtra's greatest forts, stories, battles, and heritage experiences." })}
@@ -66,7 +90,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.75 }}
+              transition={{ duration: 0.9, delay: 0.75 }}
               className="flex flex-wrap gap-4 mt-10"
             >
               <Link to="/forts" className="btn-primary">{t(ui.exploreForts)}</Link>
@@ -76,10 +100,18 @@ export default function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        >
           <span className="text-[10px] uppercase tracking-[0.3em] text-slate-500">{t({ mr: 'स्क्रोल', en: 'Scroll' })}</span>
           <ChevronDown className="w-5 h-5 animate-scroll-indicator" style={{ color: 'var(--gold)' }} />
-        </div>
+        </motion.div>
+
+        {/* Bottom fade into next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-slate-900 to-transparent"></div>
       </section>
 
       {/* ============ STATISTICS ============ */}
