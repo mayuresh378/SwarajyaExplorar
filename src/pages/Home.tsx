@@ -9,6 +9,8 @@ import FortCard from '../components/FortCard';
 import { Reveal } from '../components/Reveal';
 import { Counter } from '../components/Counter';
 import { Particles } from '../components/Particles';
+import TreasuresShowcase from '../components/TreasuresShowcase';
+import FAQ from '../components/FAQ';
 
 export default function Home() {
   const { t } = useLanguage();
@@ -203,6 +205,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ============ TREASURES OF SWARAJYA ============ */}
+      <TreasuresShowcase />
+
       {/* ============ HERITAGE EXPERIENCES ============ */}
       <section className="section-spacing border-y border-white/5 relative">
         <div className="absolute inset-0 pattern-overlay opacity-50"></div>
@@ -309,6 +314,8 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      <FAQ />
 
       <Footer />
     </div>
