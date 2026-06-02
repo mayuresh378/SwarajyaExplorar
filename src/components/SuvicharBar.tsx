@@ -16,7 +16,7 @@ export default function SuvicharBar() {
   }, []);
 
   return (
-    <div className="relative z-[60] overflow-hidden" style={{ background: 'var(--maroon-deep)' }}>
+    <div className="relative z-[60] overflow-hidden" style={{ background: 'linear-gradient(90deg, var(--maroon-deep) 0%, var(--maroon-rich) 50%, var(--maroon-deep) 100%)', borderBottom: '1px solid rgba(212, 164, 55, 0.3)' }}>
       <div className="container-premium">
         <div className="flex items-center justify-center gap-3 h-10">
           <Quote className="w-3.5 h-3.5 shrink-0" style={{ color: 'var(--gold-bright)' }} />

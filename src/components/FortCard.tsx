@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mountain, Clock, MapPin, ArrowUpRight } from 'lucide-react';
 import { Fort } from '../types';
 import { useLanguage } from '../context/LanguageContext';
+import { CornerOrnament } from './Ornaments';
 
 interface FortCardProps {
   fort: Fort;
@@ -54,7 +55,14 @@ export default function FortCard({ fort, index = 0 }: FortCardProps) {
         </div>
 
         {/* Content */}
-        <div className="p-7">
+        <div className="p-7 relative">
+          {/* Corner ornaments */}
+          <div className="absolute top-2 left-2 w-5 h-5 opacity-25 pointer-events-none" style={{ color: 'var(--gold)' }}>
+            <CornerOrnament className="w-full h-full" />
+          </div>
+          <div className="absolute top-2 right-2 w-5 h-5 opacity-25 pointer-events-none rotate-90" style={{ color: 'var(--gold)' }}>
+            <CornerOrnament className="w-full h-full" />
+          </div>
           <p className="text-sm text-ink-soft line-clamp-2 leading-relaxed min-h-[2.5rem]">
             {t(fort.significance)}
           </p>

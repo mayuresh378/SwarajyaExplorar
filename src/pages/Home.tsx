@@ -11,6 +11,15 @@ import { Counter } from '../components/Counter';
 import { Particles } from '../components/Particles';
 import TreasuresShowcase from '../components/TreasuresShowcase';
 import FAQ from '../components/FAQ';
+import {
+  CrossedSwordsOrnament,
+  BhagwaFlag,
+  FortSilhouette,
+  Rajmudra,
+  MaharashtraMapSilhouette,
+  OrnamentalDivider,
+  CornerOrnament,
+} from '../components/Ornaments';
 
 export default function Home() {
   const { t } = useLanguage();
@@ -67,9 +76,36 @@ export default function Home() {
         {/* Floating golden particles */}
         <Particles count={20} />
 
+        {/* Bhagwa flags as decorative elements */}
+        <motion.div
+          initial={{ opacity: 0, rotate: -5 }}
+          animate={{ opacity: 1, rotate: 0 }}
+          transition={{ delay: 1.2, duration: 1 }}
+          className="hidden lg:block absolute right-[8%] top-[18%] z-10"
+        >
+          <BhagwaFlag className="w-12 h-20 drop-shadow-lg animate-fog-slow" />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, rotate: 5 }}
+          animate={{ opacity: 1, rotate: 0 }}
+          transition={{ delay: 1.4, duration: 1 }}
+          className="hidden lg:block absolute right-[18%] top-[35%] z-10"
+        >
+          <BhagwaFlag className="w-10 h-16 drop-shadow-lg animate-fog opacity-80" />
+        </motion.div>
+
         {/* Content */}
         <div className="container-premium relative z-10 pt-20">
           <div className="max-w-3xl">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="mb-4"
+            >
+              <CrossedSwordsOrnament className="w-24 h-16" />
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -157,8 +193,13 @@ export default function Home() {
           <ChevronDown className="w-5 h-5 animate-scroll-indicator" style={{ color: 'var(--gold)' }} />
         </motion.div>
 
+        {/* Fort silhouette rising from below */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 z-[1] pointer-events-none" style={{ color: 'var(--maroon-deep)' }}>
+          <FortSilhouette className="w-full h-full" />
+        </div>
+
         {/* Bottom fade into next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-slate-900 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[color:var(--parchment)] to-transparent"></div>
       </section>
 
       {/* ============ STATISTICS ============ */}
@@ -184,8 +225,12 @@ export default function Home() {
       </section>
 
       {/* ============ STORYTELLING ============ */}
-      <section className="section-spacing relative">
-        <div className="container-premium">
+      <section className="section-spacing relative overflow-hidden">
+        {/* Maharashtra map watermark */}
+        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-[600px] h-[450px] opacity-[0.06] pointer-events-none" style={{ color: 'var(--maroon)' }}>
+          <MaharashtraMapSilhouette className="w-full h-full" />
+        </div>
+        <div className="container-premium relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <Reveal>
               <div className="relative">
@@ -221,6 +266,9 @@ export default function Home() {
       {/* ============ FEATURED FORTS ============ */}
       <section className="section-spacing relative">
         <div className="container-premium">
+          <div className="mb-16">
+            <OrnamentalDivider />
+          </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
             <Reveal>
               <p className="eyebrow mb-4">{t({ mr: 'क्युरेटेड संग्रह', en: 'Curated Collection' })}</p>
@@ -282,9 +330,22 @@ export default function Home() {
         <div className="container-premium">
           <Reveal>
             <div className="glass-surface rounded-3xl p-10 md:p-14 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, var(--saffron), transparent)' }}></div>
+              {/* Rajmudra emblem watermark */}
+              <div className="absolute -right-8 -top-8 w-48 h-48 opacity-[0.08] pointer-events-none">
+                <Rajmudra className="w-full h-full" />
+              </div>
+              <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10 pointer-events-none" style={{ background: 'radial-gradient(circle, var(--saffron), transparent)' }}></div>
+              {/* Corner ornaments */}
+              <div className="absolute top-4 left-4 w-8 h-8 opacity-30" style={{ color: 'var(--gold)' }}>
+                <CornerOrnament className="w-full h-full" />
+              </div>
+              <div className="absolute bottom-4 right-4 w-8 h-8 opacity-30 rotate-180" style={{ color: 'var(--gold)' }}>
+                <CornerOrnament className="w-full h-full" />
+              </div>
               <div className="relative flex flex-col md:flex-row items-start gap-8">
-                <div className="text-6xl">📜</div>
+                <div className="shrink-0">
+                  <Rajmudra className="w-20 h-20" />
+                </div>
                 <div>
                   <p className="eyebrow mb-3">{t(ui.dailyHistory)}</p>
                   <h3 className="text-3xl font-bold text-ink mb-3">{dailyEvent.year} — {t(dailyEvent.title)}</h3>
