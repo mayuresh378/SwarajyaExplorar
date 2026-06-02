@@ -19,6 +19,10 @@ import {
   MaharashtraMapSilhouette,
   OrnamentalDivider,
   CornerOrnament,
+  ShivajiCrown,
+  BhavaniTalwar,
+  MarathaShield,
+  ShivajiSilhouette,
 } from '../components/Ornaments';
 
 export default function Home() {
@@ -203,8 +207,15 @@ export default function Home() {
       </section>
 
       {/* ============ STATISTICS ============ */}
-      <section className="py-24 section-rich relative">
+      <section className="py-24 section-rich relative overflow-hidden">
         <div className="absolute inset-0 pattern-overlay opacity-40"></div>
+        {/* Background Rajmudra watermark */}
+        <div className="absolute -left-20 top-1/2 -translate-y-1/2 w-[400px] h-[400px] opacity-[0.07] pointer-events-none">
+          <Rajmudra className="w-full h-full" />
+        </div>
+        <div className="absolute -right-16 -top-16 w-[300px] h-[300px] opacity-[0.08] pointer-events-none rotate-12">
+          <MarathaShield className="w-full h-full" />
+        </div>
         <div className="container-premium relative">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {[
@@ -229,6 +240,10 @@ export default function Home() {
         {/* Maharashtra map watermark */}
         <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-[600px] h-[450px] opacity-[0.06] pointer-events-none" style={{ color: 'var(--maroon)' }}>
           <MaharashtraMapSilhouette className="w-full h-full" />
+        </div>
+        {/* Shivaji silhouette watermark - left side */}
+        <div className="absolute -left-10 top-32 w-[280px] h-[350px] opacity-[0.06] pointer-events-none" style={{ color: 'var(--maroon)' }}>
+          <ShivajiSilhouette className="w-full h-full" />
         </div>
         <div className="container-premium relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -264,8 +279,20 @@ export default function Home() {
       </section>
 
       {/* ============ FEATURED FORTS ============ */}
-      <section className="section-spacing relative">
-        <div className="container-premium">
+      <section className="section-spacing relative overflow-hidden">
+        {/* Floating Bhavani Talwars on the sides */}
+        <div className="hidden lg:block absolute left-4 top-32 w-12 h-80 opacity-30 pointer-events-none">
+          <BhavaniTalwar className="w-full h-full" />
+        </div>
+        <div className="hidden lg:block absolute right-4 top-32 w-12 h-80 opacity-30 pointer-events-none scale-x-[-1]">
+          <BhavaniTalwar className="w-full h-full" />
+        </div>
+
+        <div className="container-premium relative">
+          {/* Crown ornament header */}
+          <div className="flex justify-center mb-8">
+            <ShivajiCrown className="w-24 h-16 opacity-90" />
+          </div>
           <div className="mb-16">
             <OrnamentalDivider />
           </div>
@@ -362,12 +389,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* === Fort Skyline Divider Band === */}
+      <div className="relative h-24 overflow-hidden" style={{ background: 'linear-gradient(180deg, transparent 0%, var(--parchment-2) 100%)' }}>
+        <div className="absolute bottom-0 left-0 right-0 h-20" style={{ color: 'var(--maroon-rich)' }}>
+          <FortSilhouette className="w-full h-full" />
+        </div>
+      </div>
+
       {/* ============ TESTIMONIALS ============ */}
-      <section className="section-spacing section-rich relative">
+      <section className="section-spacing section-rich relative overflow-hidden">
         <div className="absolute inset-0 pattern-overlay opacity-30"></div>
+        {/* Background shield */}
+        <div className="absolute -right-20 top-10 w-[280px] h-[350px] opacity-[0.08] pointer-events-none">
+          <MarathaShield className="w-full h-full" />
+        </div>
+        {/* Background bhagwa flag */}
+        <div className="absolute -left-12 bottom-10 w-[200px] h-[280px] opacity-[0.1] pointer-events-none">
+          <BhagwaFlag className="w-full h-full" />
+        </div>
         <div className="container-premium relative">
           <div className="text-center mb-16">
             <Reveal>
+              {/* Crossed swords header */}
+              <div className="flex justify-center mb-6">
+                <CrossedSwordsOrnament className="w-20 h-14" />
+              </div>
               <p className="eyebrow mb-4 justify-center">{t({ mr: 'प्रशंसापत्रे', en: 'Testimonials' })}</p>
               <h2 className="heading-lg">{t({ mr: 'लोक काय म्हणतात', en: 'What People Say' })}</h2>
             </Reveal>
