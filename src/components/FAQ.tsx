@@ -54,9 +54,9 @@ export default function FAQ() {
                   onClick={() => setOpen(open === i ? null : i)}
                   className="w-full flex items-center justify-between gap-4 p-6 text-left"
                 >
-                  <span className="font-semibold text-white text-lg">{t(faq.q)}</span>
-                  <span className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(217, 119, 6, 0.15)' }}>
-                    {open === i ? <Minus className="w-4 h-4" style={{ color: 'var(--gold)' }} /> : <Plus className="w-4 h-4" style={{ color: 'var(--gold)' }} />}
+                  <span className="font-semibold text-ink text-lg">{t(faq.q)}</span>
+                  <span className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(194, 65, 12, 0.12)' }}>
+                    {open === i ? <Minus className="w-4 h-4" style={{ color: 'var(--maroon)' }} /> : <Plus className="w-4 h-4" style={{ color: 'var(--maroon)' }} />}
                   </span>
                 </button>
                 <AnimatePresence>
@@ -68,7 +68,7 @@ export default function FAQ() {
                       transition={{ duration: 0.3, ease: 'easeInOut' }}
                       className="overflow-hidden"
                     >
-                      <p className="px-6 pb-6 text-slate-400 leading-relaxed">{t(faq.a)}</p>
+                      <p className="px-6 pb-6 text-ink-soft leading-relaxed">{t(faq.a)}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

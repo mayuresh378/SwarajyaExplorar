@@ -55,20 +55,20 @@ export default function FortCard({ fort, index = 0 }: FortCardProps) {
 
         {/* Content */}
         <div className="p-7">
-          <p className="text-sm text-slate-400 line-clamp-2 leading-relaxed min-h-[2.5rem]">
+          <p className="text-sm text-ink-soft line-clamp-2 leading-relaxed min-h-[2.5rem]">
             {t(fort.significance)}
           </p>
 
-          <div className="flex items-center gap-5 mt-5 pt-5 border-t border-white/5">
-            <span className="flex items-center gap-1.5 text-xs text-slate-400">
+          <div className="flex items-center gap-5 mt-5 pt-5" style={{ borderTop: '1px solid rgba(168, 122, 30, 0.2)' }}>
+            <span className="flex items-center gap-1.5 text-xs text-ink-soft">
               <Mountain className="w-4 h-4" style={{ color: 'var(--saffron)' }} />
               {fort.altitude}m
             </span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400">
+            <span className="flex items-center gap-1.5 text-xs text-ink-soft">
               <Clock className="w-4 h-4" style={{ color: 'var(--saffron)' }} />
               {t(fort.trekDuration)}
             </span>
-            <span className="ml-auto flex items-center gap-1 text-xs font-semibold transition-all group-hover:gap-2" style={{ color: 'var(--gold)' }}>
+            <span className="ml-auto flex items-center gap-1 text-xs font-semibold transition-all group-hover:gap-2" style={{ color: 'var(--maroon)' }}>
               {t({ mr: 'पहा', en: 'Visit' })}
               <ArrowUpRight className="w-4 h-4" />
             </span>

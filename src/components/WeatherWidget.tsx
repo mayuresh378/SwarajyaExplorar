@@ -50,16 +50,16 @@ export default function WeatherWidget({ latitude, longitude, fortName }: Weather
   if (loading) {
     return (
       <div className="heritage-card-bg rounded-lg p-4 animate-pulse">
-        <div className="h-4 bg-amber-900/30 rounded w-1/2 mb-2"></div>
-        <div className="h-8 bg-amber-900/30 rounded w-1/3"></div>
+        <div className="h-4 rounded w-1/2 mb-2" style={{ background: 'rgba(168,122,30,0.2)' }}></div>
+        <div className="h-8 rounded w-1/3" style={{ background: 'rgba(168,122,30,0.2)' }}></div>
       </div>
     );
   }
 
   if (error || !weather) {
     return (
-      <div className="heritage-card-bg rounded-lg p-4 text-stone-500 text-sm">
-        <Cloud className="w-5 h-5 mb-1 text-stone-600" />
+      <div className="heritage-card-bg rounded-lg p-4 text-ink-soft text-sm">
+        <Cloud className="w-5 h-5 mb-1 text-ink-soft" />
         Weather data unavailable
       </div>
     );
@@ -67,23 +67,23 @@ export default function WeatherWidget({ latitude, longitude, fortName }: Weather
 
   return (
     <div className="heritage-card-bg rounded-lg p-5">
-      <p className="text-xs text-amber-500 uppercase tracking-wider font-semibold mb-3">Weather at {fortName}</p>
+      <p className="text-xs uppercase tracking-wider font-semibold mb-3" style={{ color: 'var(--maroon)' }}>Weather at {fortName}</p>
       <div className="flex items-center gap-3">
         <span className="text-3xl">{weather.icon}</span>
         <div>
-          <p className="text-2xl font-bold text-amber-100">{weather.temperature}°C</p>
-          <p className="text-sm text-stone-400">{weather.description}</p>
+          <p className="text-2xl font-bold text-ink">{weather.temperature}°C</p>
+          <p className="text-sm text-ink-soft">{weather.description}</p>
         </div>
       </div>
-      <div className="flex items-center gap-4 mt-4 pt-3 border-t border-amber-900/20">
-        <span className="flex items-center gap-1 text-xs text-stone-500">
-          <Thermometer className="w-3.5 h-3.5 text-amber-600" />{weather.temperature}°C
+      <div className="flex items-center gap-4 mt-4 pt-3" style={{ borderTop: '1px solid rgba(168,122,30,0.2)' }}>
+        <span className="flex items-center gap-1 text-xs text-ink-soft">
+          <Thermometer className="w-3.5 h-3.5" style={{ color: 'var(--saffron)' }} />{weather.temperature}°C
         </span>
-        <span className="flex items-center gap-1 text-xs text-stone-500">
-          <Droplets className="w-3.5 h-3.5 text-amber-600" />{weather.humidity}%
+        <span className="flex items-center gap-1 text-xs text-ink-soft">
+          <Droplets className="w-3.5 h-3.5" style={{ color: 'var(--saffron)' }} />{weather.humidity}%
         </span>
-        <span className="flex items-center gap-1 text-xs text-stone-500">
-          <Wind className="w-3.5 h-3.5 text-amber-600" />{weather.windSpeed} km/h
+        <span className="flex items-center gap-1 text-xs text-ink-soft">
+          <Wind className="w-3.5 h-3.5" style={{ color: 'var(--saffron)' }} />{weather.windSpeed} km/h
         </span>
       </div>
     </div>

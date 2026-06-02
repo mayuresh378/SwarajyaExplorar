@@ -46,12 +46,12 @@ export default function Quiz() {
     return (
       <div className="max-w-2xl mx-auto px-4 py-16 text-center animate-fade-in">
         <div className="parchment-bg rounded-lg p-10">
-          <Trophy className={`w-16 h-16 mx-auto mb-4 ${percentage >= 70 ? 'text-amber-400' : 'text-stone-600'}`} />
-          <h1 className="text-3xl font-bold text-amber-100 mb-2">
+          <Trophy className={`w-16 h-16 mx-auto mb-4`} style={{ color: percentage >= 70 ? 'var(--gold-bright)' : 'var(--ink-soft)' }} />
+          <h1 className="text-3xl font-bold text-ink mb-2">
             {t({ mr: 'प्रश्नमंजुषा पूर्ण!', en: 'Quiz Complete!' })}
           </h1>
           <p className="text-5xl font-black gold-text my-4">{score}/{quizQuestions.length}</p>
-          <p className="text-stone-400 mb-6">
+          <p className="text-ink-soft mb-6">
             {percentage >= 80
               ? t({ mr: '🎉 उत्कृष्ट! तुम्ही खरे इतिहासप्रेमी आहात!', en: '🎉 Excellent! You are a true history enthusiast!' })
               : percentage >= 50
@@ -75,47 +75,47 @@ export default function Quiz() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
       <div className="mb-8">
-        <p className="text-amber-500 text-xs uppercase tracking-[0.3em] font-semibold mb-2">
+        <p className="eyebrow mb-2">
           {t({ mr: 'ज्ञान परीक्षा', en: 'Knowledge Test' })}
         </p>
-        <h1 className="text-3xl font-bold text-amber-100">
+        <h1 className="text-3xl font-bold text-ink">
           {t({ mr: '⚔️ स्वराज्य प्रश्नमंजुषा', en: '⚔️ Swarajya Quiz' })}
         </h1>
-        <p className="text-stone-500 mt-2">
+        <p className="text-ink-soft mt-2">
           {t({ mr: 'तुमचे स्वराज्याचे ज्ञान तपासा!', en: 'Test your knowledge of Swarajya!' })}
         </p>
       </div>
 
       {/* Progress */}
       <div className="flex items-center justify-between mb-4">
-        <span className="text-sm text-stone-500">
+        <span className="text-sm text-ink-soft">
           {t({ mr: `प्रश्न ${currentQ + 1} / ${quizQuestions.length}`, en: `Question ${currentQ + 1} / ${quizQuestions.length}` })}
         </span>
-        <span className="text-sm font-bold text-amber-400">
+        <span className="text-sm font-bold" style={{ color: 'var(--maroon)' }}>
           {t({ mr: `गुण: ${score}`, en: `Score: ${score}` })}
         </span>
       </div>
-      <div className="w-full bg-stone-800 rounded-full h-1.5 mb-8">
-        <div className="h-1.5 rounded-full transition-all duration-500" style={{ width: `${((currentQ + 1) / quizQuestions.length) * 100}%`, background: 'linear-gradient(90deg, #d97706, #fbbf24)' }}></div>
+      <div className="w-full rounded-full h-1.5 mb-8" style={{ background: 'rgba(168,122,30,0.2)' }}>
+        <div className="h-1.5 rounded-full transition-all duration-500" style={{ width: `${((currentQ + 1) / quizQuestions.length) * 100}%`, background: 'linear-gradient(90deg, var(--saffron), var(--gold-bright))' }}></div>
       </div>
 
       {/* Question */}
       <div className="heritage-card-bg rounded-lg p-6 animate-scale-in">
-        <h2 className="text-xl font-bold text-amber-100 mb-6">{t(question.question)}</h2>
+        <h2 className="text-xl font-bold text-ink mb-6">{t(question.question)}</h2>
 
         <div className="space-y-3">
           {question.options.map((option, index) => {
-            let optionClass = 'border-stone-700/50 hover:border-amber-700/50 hover:bg-amber-900/10';
+            let optionClass = 'border-[color:rgba(168,122,30,0.3)] hover:border-[color:var(--saffron)] hover:bg-[color:rgba(194,65,12,0.05)]';
             if (answered) {
               if (index === question.correctIndex) {
-                optionClass = 'border-emerald-600/50 bg-emerald-900/20';
+                optionClass = 'border-emerald-500 bg-emerald-50';
               } else if (index === selected && index !== question.correctIndex) {
-                optionClass = 'border-red-600/50 bg-red-900/20';
+                optionClass = 'border-red-400 bg-red-50';
               } else {
-                optionClass = 'border-stone-800 opacity-50';
+                optionClass = 'border-[color:rgba(168,122,30,0.2)] opacity-50';
               }
             } else if (selected === index) {
-              optionClass = 'border-amber-600/50 bg-amber-900/20';
+              optionClass = 'border-[color:var(--saffron)] bg-[color:rgba(194,65,12,0.08)]';
             }
 
             return (
@@ -125,12 +125,12 @@ export default function Quiz() {
                 disabled={answered}
                 className={`w-full text-left p-4 rounded-lg border transition-all duration-200 flex items-center gap-3 ${optionClass}`}
               >
-                <span className="w-8 h-8 rounded-md bg-stone-800 border border-stone-700/50 flex items-center justify-center text-sm font-bold text-amber-300 shrink-0">
+                <span className="w-8 h-8 rounded-md flex items-center justify-center text-sm font-bold shrink-0" style={{ background: 'rgba(168,122,30,0.12)', color: 'var(--maroon)' }}>
                   {String.fromCharCode(65 + index)}
                 </span>
-                <span className="font-medium text-stone-300">{t(option)}</span>
-                {answered && index === question.correctIndex && <CheckCircle className="w-5 h-5 text-emerald-400 ml-auto" />}
-                {answered && index === selected && index !== question.correctIndex && <XCircle className="w-5 h-5 text-red-400 ml-auto" />}
+                <span className="font-medium text-ink">{t(option)}</span>
+                {answered && index === question.correctIndex && <CheckCircle className="w-5 h-5 text-emerald-600 ml-auto" />}
+                {answered && index === selected && index !== question.correctIndex && <XCircle className="w-5 h-5 text-red-500 ml-auto" />}
               </button>
             );
           })}
@@ -138,10 +138,10 @@ export default function Quiz() {
 
         {/* Explanation */}
         {answered && (
-          <div className="mt-6 p-4 rounded-lg bg-amber-900/10 border border-amber-700/20 animate-fade-in">
-            <p className="text-sm text-stone-400">{t(question.explanation)}</p>
+          <div className="mt-6 p-4 rounded-lg animate-fade-in" style={{ background: 'rgba(194,65,12,0.06)', border: '1px solid rgba(194,65,12,0.15)' }}>
+            <p className="text-sm text-ink-soft">{t(question.explanation)}</p>
             {question.relatedFortId && (
-              <Link to={`/fort/${question.relatedFortId}`} className="inline-block mt-2 text-amber-400 text-sm font-medium hover:text-amber-300">
+              <Link to={`/fort/${question.relatedFortId}`} className="inline-block mt-2 text-sm font-medium hover:underline" style={{ color: 'var(--maroon)' }}>
                 {t({ mr: 'किल्ला पहा →', en: 'View Fort →' })}
               </Link>
             )}

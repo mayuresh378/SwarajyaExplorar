@@ -12,8 +12,8 @@ export default function Timeline() {
         <p className="text-amber-500 text-xs uppercase tracking-[0.3em] font-semibold mb-2">
           {t({ mr: 'इतिहास', en: 'History' })}
         </p>
-        <h1 className="text-3xl md:text-4xl font-bold text-amber-100">{t(ui.swarajyaTimeline)}</h1>
-        <p className="text-stone-500 mt-2">{t(ui.timelineDesc)}</p>
+        <h1 className="text-3xl md:text-4xl font-bold text-ink">{t(ui.swarajyaTimeline)}</h1>
+        <p className="text-ink-soft mt-2">{t(ui.timelineDesc)}</p>
       </div>
 
       <div className="relative">
@@ -26,15 +26,15 @@ export default function Timeline() {
 
               <div className={`ml-12 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
                 <div className="heritage-card-bg rounded-lg p-5 hover-glow transition-all duration-300">
-                  <span className="inline-block px-2.5 py-0.5 bg-amber-900/40 text-amber-400 border border-amber-700/30 rounded text-xs font-bold mb-2">
+                  <span className="inline-block px-2.5 py-0.5 rounded text-xs font-bold mb-2" style={{ background: 'rgba(194,65,12,0.12)', color: 'var(--maroon)' }}>
                     {event.year}
                   </span>
-                  <h3 className="font-bold text-amber-100">
-                    <Link to={`/fort/${event.fortId}`} className="hover:text-amber-300 transition-colors">
+                  <h3 className="font-bold text-ink">
+                    <Link to={`/fort/${event.fortId}`} className="hover:text-[color:var(--maroon)] transition-colors">
                       {t(event.fortName)}
                     </Link>
                   </h3>
-                  <p className="text-sm text-stone-400 mt-1">{t(event.event)}</p>
+                  <p className="text-sm text-ink-soft mt-1">{t(event.event)}</p>
                 </div>
               </div>
             </div>

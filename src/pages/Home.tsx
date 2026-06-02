@@ -128,7 +128,7 @@ export default function Home() {
       </section>
 
       {/* ============ STATISTICS ============ */}
-      <section className="py-24 border-y border-white/5 relative">
+      <section className="py-24 section-parchment relative" style={{ borderTop: '1px solid rgba(168,122,30,0.2)', borderBottom: '1px solid rgba(168,122,30,0.2)' }}>
         <div className="container-premium">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {[
@@ -141,7 +141,7 @@ export default function Home() {
                 <p className="text-4xl md:text-5xl font-bold gold-text font-display">
                   <Counter end={stat.end} suffix={stat.suffix} />
                 </p>
-                <p className="text-sm text-slate-500 mt-3 uppercase tracking-wider">{stat.label}</p>
+                <p className="text-sm text-ink-soft mt-3 uppercase tracking-wider">{stat.label}</p>
               </Reveal>
             ))}
           </div>
@@ -159,7 +159,7 @@ export default function Home() {
                 </div>
                 <div className="absolute -bottom-8 -right-4 md:-right-8 glass-surface rounded-2xl p-6 max-w-[240px]">
                   <p className="text-4xl font-bold gold-text font-display">१६७४</p>
-                  <p className="text-sm text-slate-400 mt-1">{t({ mr: 'रायगडावर राज्याभिषेक', en: 'Coronation at Raigad' })}</p>
+                  <p className="text-sm text-ink-soft mt-1">{t({ mr: 'रायगडावर राज्याभिषेक', en: 'Coronation at Raigad' })}</p>
                 </div>
               </div>
             </Reveal>
@@ -169,13 +169,13 @@ export default function Home() {
               <h2 className="heading-lg mb-6">
                 {t({ mr: 'इतिहास जिवंत करणे', en: 'Bringing History to Life' })}
               </h2>
-              <p className="text-slate-400 leading-relaxed text-lg mb-6">
+              <p className="text-ink-soft leading-relaxed text-lg mb-6">
                 {t({ mr: 'स्वराज्य एक्सप्लोरर हे महाराष्ट्राच्या किल्ल्यांना समर्पित एक डिजिटल वारसा व्यासपीठ आहे. प्रत्येक किल्ला एक कथा सांगतो — शौर्याची, बलिदानाची आणि स्वराज्याच्या स्वप्नाची.', en: 'Swarajya Explorer is a digital heritage platform dedicated to the forts of Maharashtra. Each fort tells a story — of valor, sacrifice, and the dream of self-rule.' })}
               </p>
-              <p className="text-slate-400 leading-relaxed text-lg mb-8">
+              <p className="text-ink-soft leading-relaxed text-lg mb-8">
                 {t({ mr: 'इंटरॅक्टिव्ह नकाशे, ऐतिहासिक कथा आणि ट्रेकिंग मार्गदर्शनासह, आम्ही भूतकाळ आणि वर्तमान यांना जोडतो.', en: 'With interactive maps, historical narratives, and trekking guidance, we bridge the past and present.' })}
               </p>
-              <Link to="/timeline" className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all" style={{ color: 'var(--gold)' }}>
+              <Link to="/timeline" className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all" style={{ color: 'var(--maroon)' }}>
                 {t({ mr: 'कालरेषा एक्सप्लोर करा', en: 'Explore the Timeline' })} <ChevronRight className="w-4 h-4" />
               </Link>
             </Reveal>
@@ -192,7 +192,7 @@ export default function Home() {
               <h2 className="heading-lg">{t(ui.featuredForts)}</h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <Link to="/forts" className="mt-6 md:mt-0 inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all" style={{ color: 'var(--gold)' }}>
+              <Link to="/forts" className="mt-6 md:mt-0 inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all" style={{ color: 'var(--maroon)' }}>
                 {t(ui.viewAll)} <ChevronRight className="w-4 h-4" />
               </Link>
             </Reveal>
@@ -209,14 +209,14 @@ export default function Home() {
       <TreasuresShowcase />
 
       {/* ============ HERITAGE EXPERIENCES ============ */}
-      <section className="section-spacing border-y border-white/5 relative">
+      <section className="section-spacing section-parchment relative" style={{ borderTop: '1px solid rgba(168,122,30,0.2)', borderBottom: '1px solid rgba(168,122,30,0.2)' }}>
         <div className="absolute inset-0 pattern-overlay opacity-50"></div>
         <div className="container-premium relative">
           <div className="text-center mb-16 max-w-2xl mx-auto">
             <Reveal>
               <p className="eyebrow mb-4 justify-center">{t({ mr: 'अनुभव', en: 'Experiences' })}</p>
               <h2 className="heading-lg mb-4">{t({ mr: 'वारसा अनुभव', en: 'Heritage Experiences' })}</h2>
-              <p className="text-slate-400 text-lg">{t({ mr: 'इतिहास अनुभवण्याचे अनेक मार्ग', en: 'Multiple ways to experience history' })}</p>
+              <p className="text-ink-soft text-lg">{t({ mr: 'इतिहास अनुभवण्याचे अनेक मार्ग', en: 'Multiple ways to experience history' })}</p>
             </Reveal>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -230,11 +230,11 @@ export default function Home() {
             ].map((exp, i) => (
               <Reveal key={i} delay={i * 0.08}>
                 <div className="card-premium p-8 h-full group">
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110" style={{ background: 'linear-gradient(135deg, rgba(217, 119, 6, 0.15), rgba(153, 27, 27, 0.1))', border: '1px solid rgba(217, 119, 6, 0.2)' }}>
-                    <exp.icon className="w-6 h-6" style={{ color: 'var(--gold)' }} />
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110" style={{ background: 'linear-gradient(135deg, rgba(194, 65, 12, 0.12), rgba(122, 20, 24, 0.08))', border: '1px solid rgba(194, 65, 12, 0.2)' }}>
+                    <exp.icon className="w-6 h-6" style={{ color: 'var(--saffron)' }} />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{exp.title}</h3>
-                  <p className="text-slate-400 leading-relaxed">{exp.desc}</p>
+                  <h3 className="text-xl font-bold text-ink mb-3">{exp.title}</h3>
+                  <p className="text-ink-soft leading-relaxed">{exp.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -252,10 +252,10 @@ export default function Home() {
                 <div className="text-6xl">📜</div>
                 <div>
                   <p className="eyebrow mb-3">{t(ui.dailyHistory)}</p>
-                  <h3 className="text-3xl font-bold text-white mb-3">{dailyEvent.year} — {t(dailyEvent.title)}</h3>
-                  <p className="text-slate-400 text-lg leading-relaxed max-w-2xl">{t(dailyEvent.description)}</p>
+                  <h3 className="text-3xl font-bold text-ink mb-3">{dailyEvent.year} — {t(dailyEvent.title)}</h3>
+                  <p className="text-ink-soft text-lg leading-relaxed max-w-2xl">{t(dailyEvent.description)}</p>
                   {dailyEvent.relatedFortId && (
-                    <Link to={`/fort/${dailyEvent.relatedFortId}`} className="inline-flex items-center gap-2 mt-6 text-sm font-semibold hover:gap-3 transition-all" style={{ color: 'var(--gold)' }}>
+                    <Link to={`/fort/${dailyEvent.relatedFortId}`} className="inline-flex items-center gap-2 mt-6 text-sm font-semibold hover:gap-3 transition-all" style={{ color: 'var(--maroon)' }}>
                       {t({ mr: 'किल्ला पहा', en: 'View Fort' })} <ChevronRight className="w-4 h-4" />
                     </Link>
                   )}
@@ -267,7 +267,7 @@ export default function Home() {
       </section>
 
       {/* ============ TESTIMONIALS ============ */}
-      <section className="section-spacing border-y border-white/5">
+      <section className="section-spacing section-parchment" style={{ borderTop: '1px solid rgba(168,122,30,0.2)', borderBottom: '1px solid rgba(168,122,30,0.2)' }}>
         <div className="container-premium">
           <div className="text-center mb-16">
             <Reveal>
@@ -286,8 +286,8 @@ export default function Home() {
                   <div className="flex gap-1 mb-5">
                     {[1,2,3,4,5].map(s => <Star key={s} className="w-4 h-4 fill-current" style={{ color: 'var(--gold)' }} />)}
                   </div>
-                  <blockquote className="text-lg text-slate-200 leading-relaxed italic mb-6">"{item.quote}"</blockquote>
-                  <p className="text-sm font-semibold" style={{ color: 'var(--gold)' }}>— {item.author}</p>
+                  <blockquote className="text-lg text-ink leading-relaxed italic mb-6">"{item.quote}"</blockquote>
+                  <p className="text-sm font-semibold" style={{ color: 'var(--maroon)' }}>— {item.author}</p>
                 </div>
               </Reveal>
             ))}
@@ -325,51 +325,51 @@ export default function Home() {
 function Footer() {
   const { t } = useLanguage();
   return (
-    <footer className="border-t border-white/5 pt-20 pb-10">
+    <footer className="pt-20 pb-10" style={{ background: 'var(--maroon-deep)' }}>
       <div className="container-premium">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, var(--saffron), var(--maratha-red))' }}>
-                <Castle className="w-5 h-5 text-white" />
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, var(--gold-bright), var(--gold))' }}>
+                <Castle className="w-5 h-5" style={{ color: 'var(--maroon-deep)' }} />
               </div>
-              <span className="font-display text-lg font-bold text-white">{t(ui.heroTitle)}</span>
+              <span className="font-display text-lg font-bold" style={{ color: 'var(--parchment)' }}>{t(ui.heroTitle)}</span>
             </div>
-            <p className="text-slate-500 leading-relaxed max-w-sm mb-6">
+            <p className="leading-relaxed max-w-sm mb-6" style={{ color: 'rgba(243, 229, 200, 0.6)' }}>
               {t({ mr: 'महाराष्ट्राच्या ऐतिहासिक किल्ल्यांचा डिजिटल वारसा अनुभव.', en: "A digital heritage experience for Maharashtra's historic forts." })}
             </p>
             <div className="flex gap-3">
               {['twitter', 'instagram', 'youtube', 'facebook'].map(s => (
-                <div key={s} className="w-10 h-10 rounded-full glass-surface flex items-center justify-center text-slate-400 hover:text-white transition-colors cursor-pointer">
+                <div key={s} className="w-10 h-10 rounded-full flex items-center justify-center transition-colors cursor-pointer" style={{ background: 'rgba(243, 229, 200, 0.08)', color: 'rgba(243, 229, 200, 0.7)' }}>
                   <span className="text-xs uppercase">{s[0]}</span>
                 </div>
               ))}
             </div>
           </div>
           <div>
-            <h4 className="font-semibold text-white text-sm uppercase tracking-wider mb-5">{t({ mr: 'एक्सप्लोर', en: 'Explore' })}</h4>
+            <h4 className="font-semibold text-sm uppercase tracking-wider mb-5" style={{ color: 'var(--gold-bright)' }}>{t({ mr: 'एक्सप्लोर', en: 'Explore' })}</h4>
             <ul className="space-y-3">
               {[{ to: '/forts', label: t(ui.forts) }, { to: '/map', label: t(ui.map) }, { to: '/timeline', label: t(ui.timeline) }, { to: '/heroes', label: t(ui.heroes) }].map(l => (
-                <li key={l.to}><Link to={l.to} className="text-slate-500 text-sm hover:text-white transition-colors">{l.label}</Link></li>
+                <li key={l.to}><Link to={l.to} className="text-sm transition-colors" style={{ color: 'rgba(243, 229, 200, 0.6)' }}>{l.label}</Link></li>
               ))}
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-white text-sm uppercase tracking-wider mb-5">{t({ mr: 'न्यूजलेटर', en: 'Newsletter' })}</h4>
-            <p className="text-slate-500 text-sm mb-4">{t({ mr: 'नवीन किल्ले आणि कथांसाठी सदस्यता घ्या.', en: 'Subscribe for new forts and stories.' })}</p>
+            <h4 className="font-semibold text-sm uppercase tracking-wider mb-5" style={{ color: 'var(--gold-bright)' }}>{t({ mr: 'न्यूजलेटर', en: 'Newsletter' })}</h4>
+            <p className="text-sm mb-4" style={{ color: 'rgba(243, 229, 200, 0.6)' }}>{t({ mr: 'नवीन किल्ले आणि कथांसाठी सदस्यता घ्या.', en: 'Subscribe for new forts and stories.' })}</p>
             <div className="flex gap-2">
-              <input type="email" placeholder={t({ mr: 'ईमेल', en: 'Email' })} className="flex-1 px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-amber-600/50" />
-              <button className="px-4 py-2.5 rounded-lg text-sm font-semibold" style={{ background: 'var(--saffron)', color: '#fff' }}>→</button>
+              <input type="email" placeholder={t({ mr: 'ईमेल', en: 'Email' })} className="flex-1 px-4 py-2.5 rounded-lg text-sm focus:outline-none" style={{ background: 'rgba(243, 229, 200, 0.1)', border: '1px solid rgba(243, 229, 200, 0.2)', color: 'var(--parchment)' }} />
+              <button className="px-4 py-2.5 rounded-lg text-sm font-semibold" style={{ background: 'var(--gold-bright)', color: 'var(--maroon-deep)' }}>→</button>
             </div>
           </div>
         </div>
-        <div className="divider-gold mb-8"></div>
+        <div className="mb-8" style={{ height: '1px', background: 'rgba(243, 229, 200, 0.15)' }}></div>
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-600">© 2024 {t(ui.heroTitle)}. {t({ mr: 'सर्व हक्क राखीव.', en: 'All rights reserved.' })}</p>
+          <p className="text-xs" style={{ color: 'rgba(243, 229, 200, 0.5)' }}>© 2024 {t(ui.heroTitle)}. {t({ mr: 'सर्व हक्क राखीव.', en: 'All rights reserved.' })}</p>
           <div className="flex gap-6">
-            <span className="text-xs text-slate-600 hover:text-slate-400 cursor-pointer">{t({ mr: 'गोपनीयता', en: 'Privacy' })}</span>
-            <span className="text-xs text-slate-600 hover:text-slate-400 cursor-pointer">{t({ mr: 'अटी', en: 'Terms' })}</span>
-            <span className="text-xs text-slate-600 hover:text-slate-400 cursor-pointer">{t({ mr: 'संपर्क', en: 'Contact' })}</span>
+            <span className="text-xs cursor-pointer" style={{ color: 'rgba(243, 229, 200, 0.5)' }}>{t({ mr: 'गोपनीयता', en: 'Privacy' })}</span>
+            <span className="text-xs cursor-pointer" style={{ color: 'rgba(243, 229, 200, 0.5)' }}>{t({ mr: 'अटी', en: 'Terms' })}</span>
+            <span className="text-xs cursor-pointer" style={{ color: 'rgba(243, 229, 200, 0.5)' }}>{t({ mr: 'संपर्क', en: 'Contact' })}</span>
           </div>
         </div>
       </div>

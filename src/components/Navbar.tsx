@@ -36,45 +36,53 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? 'rgba(15, 23, 42, 0.85)' : 'transparent',
+        background: scrolled ? 'rgba(243, 229, 200, 0.92)' : 'transparent',
         backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(248, 250, 252, 0.06)' : '1px solid transparent',
+        borderBottom: scrolled ? '1px solid rgba(168, 122, 30, 0.2)' : '1px solid transparent',
       }}
     >
       <div className="container-premium">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, var(--saffron), var(--maratha-red))' }}>
+            <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, var(--saffron), var(--maroon))' }}>
               <Castle className="w-5 h-5 text-white" />
             </div>
-            <span className="font-display text-lg font-bold tracking-wide text-white">
+            <span className="font-display text-lg font-bold tracking-wide" style={{ color: scrolled ? 'var(--ink)' : '#FBF5E6' }}>
               {language === 'mr' ? 'स्वराज्य' : 'SWARAJYA'}
             </span>
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
-            {links.map(({ to, label }) => (
-              <Link
-                key={to}
-                to={to}
-                className={`px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-200 ${
-                  location.pathname === to ? 'text-white' : 'text-slate-400 hover:text-white'
-                }`}
-                style={location.pathname === to ? { background: 'rgba(217, 119, 6, 0.15)' } : {}}
-              >
-                {label}
-              </Link>
-            ))}
+            {links.map(({ to, label }) => {
+              const active = location.pathname === to;
+              return (
+                <Link
+                  key={to}
+                  to={to}
+                  className="px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-200"
+                  style={{
+                    color: active ? 'var(--maroon)' : (scrolled ? 'var(--ink-soft)' : 'rgba(251, 245, 230, 0.9)'),
+                    background: active ? 'rgba(194, 65, 12, 0.12)' : 'transparent',
+                  }}
+                >
+                  {label}
+                </Link>
+              );
+            })}
           </div>
 
           <div className="flex items-center gap-3">
             <button
               onClick={() => setLanguage(language === 'mr' ? 'en' : 'mr')}
-              className="px-3 py-1.5 rounded-full text-xs font-semibold text-slate-300 border border-white/10 hover:border-white/30 hover:text-white transition-all"
+              className="px-3 py-1.5 rounded-full text-xs font-semibold transition-all"
+              style={{
+                color: scrolled ? 'var(--ink)' : '#FBF5E6',
+                border: `1px solid ${scrolled ? 'rgba(168, 122, 30, 0.4)' : 'rgba(251, 245, 230, 0.4)'}`,
+              }}
             >
               {language === 'mr' ? 'EN' : 'मराठी'}
             </button>
-            <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-white p-1">
+            <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-1" style={{ color: scrolled ? 'var(--ink)' : '#FBF5E6' }}>
               {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -88,20 +96,25 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden overflow-hidden"
-            style={{ background: 'rgba(15, 23, 42, 0.98)', backdropFilter: 'blur(16px)' }}
+            style={{ background: 'rgba(243, 229, 200, 0.98)', backdropFilter: 'blur(16px)' }}
           >
             <div className="container-premium py-4 flex flex-col gap-1">
-              {links.map(({ to, label }) => (
-                <Link
-                  key={to}
-                  to={to}
-                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-all ${
-                    location.pathname === to ? 'text-white bg-white/8' : 'text-slate-400'
-                  }`}
-                >
-                  {label}
-                </Link>
-              ))}
+              {links.map(({ to, label }) => {
+                const active = location.pathname === to;
+                return (
+                  <Link
+                    key={to}
+                    to={to}
+                    className="px-4 py-3 rounded-lg text-sm font-medium transition-all"
+                    style={{
+                      color: active ? 'var(--maroon)' : 'var(--ink-soft)',
+                      background: active ? 'rgba(194, 65, 12, 0.1)' : 'transparent',
+                    }}
+                  >
+                    {label}
+                  </Link>
+                );
+              })}
             </div>
           </motion.div>
         )}

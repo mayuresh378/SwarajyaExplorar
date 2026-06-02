@@ -66,7 +66,7 @@ export default function TreasuresShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-slate-400 text-lg"
+            className="text-ink-soft text-lg"
           >
             {t({ mr: 'स्वराज्याच्या भावनेचे प्रतीक असलेल्या अमूल्य वारशाचा शोध घ्या.', en: 'Explore the priceless relics that embody the spirit of Swarajya.' })}
           </motion.p>
@@ -105,11 +105,11 @@ export default function TreasuresShowcase() {
                   <span className="font-display text-sm font-bold tracking-[0.3em]" style={{ color: 'var(--saffron)' }}>
                     {treasure.num}
                   </span>
-                  <h3 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-5 leading-tight">
+                  <h3 className="text-3xl md:text-4xl font-bold text-ink mt-3 mb-5 leading-tight">
                     {t(treasure.title)}
                   </h3>
                   <div className="w-16 h-1 rounded-full mb-6" style={{ background: 'linear-gradient(90deg, var(--saffron), var(--gold))' }}></div>
-                  <p className="text-slate-400 text-lg leading-relaxed">
+                  <p className="text-ink-soft text-lg leading-relaxed">
                     {t(treasure.desc)}
                   </p>
                 </motion.div>
