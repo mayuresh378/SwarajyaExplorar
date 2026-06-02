@@ -36,18 +36,22 @@
     font-family: 'Inter', 'Mukta', sans-serif;
     background: var(--parchment);
     background-image:
-      /* Top: large faint mandala glow */
-      radial-gradient(ellipse at 80% 5%, rgba(176, 128, 32, 0.18), transparent 45%),
-      radial-gradient(ellipse at 10% 20%, rgba(122, 20, 24, 0.1), transparent 40%),
-      /* Mid: scattered ornament dots */
-      radial-gradient(circle at 30% 50%, rgba(122, 20, 24, 0.05), transparent 25%),
-      radial-gradient(circle at 70% 65%, rgba(176, 128, 32, 0.07), transparent 30%),
-      /* Bottom warm wash */
-      radial-gradient(ellipse at center bottom, rgba(122, 20, 24, 0.08), transparent 50%),
-      /* Persistent paisley pattern */
-      url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%237A1418' stroke-width='0.7' stroke-opacity='0.07'%3E%3Cpath d='M100 30 Q 130 40 130 70 Q 130 100 100 100 Q 80 100 80 80 Q 80 65 95 65 Q 105 65 105 75'/%3E%3Cpath d='M100 170 Q 70 160 70 130 Q 70 100 100 100 Q 120 100 120 120 Q 120 135 105 135 Q 95 135 95 125'/%3E%3Ccircle cx='100' cy='100' r='3.5'/%3E%3C/g%3E%3Cg fill='%23B08020' fill-opacity='0.08'%3E%3Ccircle cx='40' cy='40' r='1.2'/%3E%3Ccircle cx='160' cy='40' r='1.2'/%3E%3Ccircle cx='40' cy='160' r='1.2'/%3E%3Ccircle cx='160' cy='160' r='1.2'/%3E%3C/g%3E%3C/svg%3E"),
-      /* Noise grain */
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      /* Parchment burn marks at corners */
+      radial-gradient(ellipse 30% 30% at 0% 0%, rgba(122, 20, 24, 0.15), transparent 60%),
+      radial-gradient(ellipse 30% 30% at 100% 0%, rgba(122, 20, 24, 0.12), transparent 60%),
+      radial-gradient(ellipse 30% 30% at 0% 100%, rgba(122, 20, 24, 0.1), transparent 60%),
+      radial-gradient(ellipse 30% 30% at 100% 100%, rgba(122, 20, 24, 0.12), transparent 60%),
+      /* Color washes */
+      radial-gradient(ellipse at 80% 5%, rgba(176, 128, 32, 0.15), transparent 45%),
+      radial-gradient(ellipse at 10% 20%, rgba(122, 20, 24, 0.08), transparent 40%),
+      radial-gradient(ellipse at center bottom, rgba(122, 20, 24, 0.1), transparent 50%),
+      /* Faint parchment fiber lines */
+      url("data:image/svg+xml,%3Csvg width='400' height='100' viewBox='0 0 400 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%237A1418' stroke-width='0.2' stroke-opacity='0.06' fill='none'%3E%3Cpath d='M 0 30 Q 200 28 400 32'/%3E%3Cpath d='M 0 55 Q 150 53 400 58'/%3E%3Cpath d='M 0 78 Q 250 75 400 80'/%3E%3C/g%3E%3C/svg%3E"),
+      /* Paisley pattern */
+      url("data:image/svg+xml,%3Csvg width='240' height='240' viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%237A1418' stroke-width='0.7' stroke-opacity='0.06'%3E%3Cpath d='M120 40 Q 160 50 160 90 Q 160 130 120 130 Q 95 130 95 105 Q 95 85 115 85 Q 130 85 130 100'/%3E%3Cpath d='M120 200 Q 80 190 80 150 Q 80 110 120 110 Q 145 110 145 135 Q 145 155 125 155 Q 110 155 110 140'/%3E%3Ccircle cx='120' cy='120' r='4'/%3E%3C/g%3E%3Cg fill='%23B08020' fill-opacity='0.08'%3E%3Ccircle cx='40' cy='40' r='1.5'/%3E%3Ccircle cx='200' cy='40' r='1.5'/%3E%3Ccircle cx='40' cy='200' r='1.5'/%3E%3Ccircle cx='200' cy='200' r='1.5'/%3E%3Ccircle cx='120' cy='40' r='1'/%3E%3Ccircle cx='40' cy='120' r='1'/%3E%3Ccircle cx='200' cy='120' r='1'/%3E%3Ccircle cx='120' cy='200' r='1'/%3E%3C/g%3E%3C/svg%3E"),
+      /* Manuscript paper grain */
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='4' /%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+    background-attachment: fixed, fixed, fixed, fixed, fixed, fixed, fixed, scroll, scroll, scroll;
     color: var(--ink);
     overflow-x: hidden;
   }

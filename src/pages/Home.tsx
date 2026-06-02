@@ -24,6 +24,14 @@ import {
   MarathaShield,
   ShivajiSilhouette,
 } from '../components/Ornaments';
+import {
+  AncientCompass,
+  HandDrawnFort,
+  SwarajyaMap,
+  MountainRidge,
+  ManuscriptCorner,
+  RouteLines,
+} from '../components/HeritageElements';
 
 export default function Home() {
   const { t } = useLanguage();
@@ -51,7 +59,7 @@ export default function Home() {
             />
           </div>
           {/* Desktop: anchored to the right as a cinematic focal point */}
-          <div className="absolute inset-y-0 right-0 w-full md:w-3/5 hidden md:block">
+          <div className="absolute inset-y-0 right-0 w-full md:w-2/5 hidden md:block opacity-80">
             <div className="absolute inset-0 animate-ken-burns">
               <img
                 src="/hero-shivaji-silhouette.jpeg"
@@ -96,6 +104,28 @@ export default function Home() {
           className="hidden lg:block absolute right-[18%] top-[35%] z-10"
         >
           <BhagwaFlag className="w-10 h-16 drop-shadow-lg animate-fog opacity-80" />
+        </motion.div>
+
+        {/* Hand-drawn Raigad fort sketch in hero */}
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 0.65, x: 0 }}
+          transition={{ delay: 1.5, duration: 1.5 }}
+          className="hidden lg:block absolute right-[5%] bottom-[18%] w-[420px] h-[250px] pointer-events-none z-[2]"
+          style={{ color: 'var(--gold-bright)' }}
+        >
+          <HandDrawnFort className="w-full h-full" />
+        </motion.div>
+
+        {/* Ancient compass corner */}
+        <motion.div
+          initial={{ opacity: 0, rotate: -90 }}
+          animate={{ opacity: 0.4, rotate: 0 }}
+          transition={{ delay: 1.8, duration: 2 }}
+          className="hidden md:block absolute right-8 top-24 w-32 h-32 pointer-events-none z-[2]"
+          style={{ color: 'var(--gold-bright)' }}
+        >
+          <AncientCompass className="w-full h-full" />
         </motion.div>
 
         {/* Content */}
@@ -237,13 +267,13 @@ export default function Home() {
 
       {/* ============ STORYTELLING ============ */}
       <section className="section-spacing relative overflow-hidden">
-        {/* Maharashtra map watermark */}
-        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-[600px] h-[450px] opacity-[0.06] pointer-events-none" style={{ color: 'var(--maroon)' }}>
-          <MaharashtraMapSilhouette className="w-full h-full" />
+        {/* MASSIVE Swarajya map watermark */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.08]" style={{ color: 'var(--maroon)' }}>
+          <SwarajyaMap className="w-[1200px] h-[800px] max-w-none" />
         </div>
-        {/* Shivaji silhouette watermark - left side */}
-        <div className="absolute -left-10 top-32 w-[280px] h-[350px] opacity-[0.06] pointer-events-none" style={{ color: 'var(--maroon)' }}>
-          <ShivajiSilhouette className="w-full h-full" />
+        {/* Ancient compass small corner */}
+        <div className="absolute top-12 right-12 w-32 h-32 opacity-25 pointer-events-none" style={{ color: 'var(--gold)' }}>
+          <AncientCompass className="w-full h-full" />
         </div>
         <div className="container-premium relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -277,6 +307,18 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* === Mountain Ridge Divider Band === */}
+      <div className="relative h-32 overflow-hidden">
+        {/* Route lines on top */}
+        <div className="absolute inset-0 opacity-50" style={{ color: 'var(--maroon)' }}>
+          <RouteLines className="w-full h-full" />
+        </div>
+        {/* Sahyadri mountains rising */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" style={{ color: 'var(--maroon-rich)' }}>
+          <MountainRidge className="w-full h-full" />
+        </div>
+      </div>
 
       {/* ============ FEATURED FORTS ============ */}
       <section className="section-spacing relative overflow-hidden">
@@ -362,12 +404,18 @@ export default function Home() {
                 <Rajmudra className="w-full h-full" />
               </div>
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10 pointer-events-none" style={{ background: 'radial-gradient(circle, var(--saffron), transparent)' }}></div>
-              {/* Corner ornaments */}
-              <div className="absolute top-4 left-4 w-8 h-8 opacity-30" style={{ color: 'var(--gold)' }}>
-                <CornerOrnament className="w-full h-full" />
+              {/* Corner ornaments - manuscript style */}
+              <div className="absolute top-3 left-3 w-12 h-12 opacity-50" style={{ color: 'var(--gold)' }}>
+                <ManuscriptCorner className="w-full h-full" />
               </div>
-              <div className="absolute bottom-4 right-4 w-8 h-8 opacity-30 rotate-180" style={{ color: 'var(--gold)' }}>
-                <CornerOrnament className="w-full h-full" />
+              <div className="absolute top-3 right-3 w-12 h-12 opacity-50 scale-x-[-1]" style={{ color: 'var(--gold)' }}>
+                <ManuscriptCorner className="w-full h-full" />
+              </div>
+              <div className="absolute bottom-3 left-3 w-12 h-12 opacity-50 scale-y-[-1]" style={{ color: 'var(--gold)' }}>
+                <ManuscriptCorner className="w-full h-full" />
+              </div>
+              <div className="absolute bottom-3 right-3 w-12 h-12 opacity-50 -scale-x-100 -scale-y-100" style={{ color: 'var(--gold)' }}>
+                <ManuscriptCorner className="w-full h-full" />
               </div>
               <div className="relative flex flex-col md:flex-row items-start gap-8">
                 <div className="shrink-0">
