@@ -74,10 +74,21 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
+              className="mb-5"
+            >
+              <span className="text-base md:text-lg italic" style={{ color: 'var(--gold-bright)', fontFamily: "'Playfair Display', serif" }}>
+                {t({ mr: 'आपला इतिहास. आपला अभिमान.', en: 'Our History. Our Pride.' })}
+              </span>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
               className="flex items-center gap-3 mb-7"
             >
-              <span className="w-10 h-px" style={{ background: 'linear-gradient(90deg, var(--gold), transparent)' }}></span>
-              <span className="eyebrow">{t({ mr: 'डिजिटल वारसा अनुभव', en: 'Digital Heritage Experience' })}</span>
+              <span className="w-10 h-px" style={{ background: 'linear-gradient(90deg, var(--gold-bright), transparent)' }}></span>
+              <span className="text-xs uppercase tracking-[0.3em] font-semibold" style={{ color: 'var(--gold-bright)' }}>{t({ mr: 'डिजिटल वारसा अनुभव', en: 'Digital Heritage Experience' })}</span>
             </motion.div>
 
             <motion.h1
@@ -88,7 +99,7 @@ export default function Home() {
               style={{ textShadow: '0 4px 40px rgba(0,0,0,0.5)' }}
             >
               {t({ mr: 'स्वराज्याचा', en: 'Explore the' })}<br />
-              <span className="gold-text">{t({ mr: 'वारसा शोधा', en: 'Legacy of Swarajya' })}</span>
+              <span style={{ background: 'linear-gradient(135deg, #FBBF24, #F59E0B, #FBBF24)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{t({ mr: 'वारसा शोधा', en: 'Legacy of Swarajya' })}</span>
             </motion.h1>
 
             <motion.p
@@ -108,6 +119,29 @@ export default function Home() {
             >
               <Link to="/forts" className="btn-primary">{t(ui.exploreForts)}</Link>
               <Link to="/map" className="btn-glass">{t({ mr: 'नकाशा पहा', en: 'View Map' })}</Link>
+            </motion.div>
+
+            {/* Quick category chips */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.9 }}
+              className="flex flex-wrap gap-3 mt-10"
+            >
+              {[
+                { to: '/forts', label: t({ mr: 'वारसा · ३५०+ गडकिल्ले', en: 'Heritage · 350+ Forts' }) },
+                { to: '/timeline', label: t({ mr: 'इतिहास · स्वराज्य कालरेषा', en: 'History · Swarajya Timeline' }) },
+                { to: '/heroes', label: t({ mr: 'वीर · योद्ध्यांच्या गाथा', en: 'Heroes · Warrior Tales' }) },
+              ].map((chip, i) => (
+                <Link
+                  key={i}
+                  to={chip.to}
+                  className="px-4 py-2 rounded-full text-xs font-medium transition-all hover:scale-105"
+                  style={{ background: 'rgba(251, 245, 230, 0.1)', border: '1px solid rgba(251, 191, 36, 0.3)', color: '#FBF5E6', backdropFilter: 'blur(8px)' }}
+                >
+                  {chip.label}
+                </Link>
+              ))}
             </motion.div>
           </div>
         </div>

@@ -1,7 +1,8 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ReactNode } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { UserProvider } from './context/UserContext';
+import SuvicharBar from './components/SuvicharBar';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import FortList from './pages/FortList';
@@ -13,9 +14,7 @@ import Heroes from './pages/Heroes';
 import Quiz from './pages/Quiz';
 
 function PageWrapper({ children }: { children: ReactNode }) {
-  const location = useLocation();
-  const isHome = location.pathname === '/';
-  return <div className={isHome ? '' : 'pt-20'}>{children}</div>;
+  return <div>{children}</div>;
 }
 
 export default function App() {
@@ -24,6 +23,7 @@ export default function App() {
       <UserProvider>
         <BrowserRouter>
           <div className="min-h-screen" style={{ background: '#F3E5C8' }}>
+            <SuvicharBar />
             <Navbar />
             <PageWrapper>
               <Routes>
