@@ -1,79 +1,80 @@
 import { Link } from 'react-router-dom';
-import { Mountain, Clock, MapPin, Star } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Mountain, Clock, MapPin, ArrowUpRight } from 'lucide-react';
 import { Fort } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 
 interface FortCardProps {
   fort: Fort;
+  index?: number;
 }
 
-const difficultyLabel: Record<string, string> = {
-  Easy: 'Easy Trek',
-  Medium: 'Moderate Trek',
-  Hard: 'Challenging Trek',
-  Expert: 'Expert Trek',
+const difficultyStyle: Record<string, string> = {
+  Easy: 'text-emerald-300 border-emerald-400/20 bg-emerald-400/10',
+  Medium: 'text-amber-300 border-amber-400/20 bg-amber-400/10',
+  Hard: 'text-orange-300 border-orange-400/20 bg-orange-400/10',
+  Expert: 'text-red-300 border-red-400/20 bg-red-400/10',
 };
 
-export default function FortCard({ fort }: FortCardProps) {
+export default function FortCard({ fort, index = 0 }: FortCardProps) {
   const { t } = useLanguage();
 
   return (
-    <Link to={`/fort/${fort.id}`} className="card group block">
-      {/* Image */}
-      <div className="relative h-56 overflow-hidden">
-        <img
-          src={fort.images[0]}
-          alt={t(fort.name)}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+    >
+      <Link to={`/fort/${fort.id}`} className="card-premium group block h-full">
+        {/* Image */}
+        <div className="relative h-64 overflow-hidden">
+          <img
+            src={fort.images[0]}
+            alt={t(fort.name)}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1.2s] ease-out"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/30 to-transparent"></div>
 
-        {/* Badge */}
-        <div className="absolute top-4 left-4">
-          <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-black/60 backdrop-blur-sm text-white/90 border border-white/10">
-            {difficultyLabel[fort.trekDifficulty]}
-          </span>
+          <div className="absolute top-4 left-4">
+            <span className={`px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider border backdrop-blur-md ${difficultyStyle[fort.trekDifficulty]}`}>
+              {fort.trekDifficulty}
+            </span>
+          </div>
+
+          <div className="absolute bottom-4 left-5 right-5">
+            <h3 className="text-2xl font-bold text-white leading-tight">{t(fort.name)}</h3>
+            <p className="flex items-center gap-1.5 text-sm text-slate-300 mt-1">
+              <MapPin className="w-3.5 h-3.5" style={{ color: 'var(--gold)' }} />
+              {t(fort.district)}
+              {fort.yearCaptured && <span style={{ color: 'var(--gold)' }}>• {fort.yearCaptured}</span>}
+            </p>
+          </div>
         </div>
 
-        {/* Rating */}
-        <div className="absolute top-4 right-4 flex items-center gap-1 px-2 py-1 rounded-md bg-black/60 backdrop-blur-sm border border-white/10">
-          <Star className="w-3 h-3 fill-current" style={{ color: 'var(--gold)' }} />
-          <span className="text-[10px] font-bold text-white">Heritage Site</span>
-        </div>
-      </div>
+        {/* Content */}
+        <div className="p-7">
+          <p className="text-sm text-slate-400 line-clamp-2 leading-relaxed min-h-[2.5rem]">
+            {t(fort.significance)}
+          </p>
 
-      {/* Content */}
-      <div className="p-5">
-        <div className="flex items-start justify-between gap-2">
-          <h3 className="text-lg font-bold text-parchment group-hover:text-white transition-colors leading-tight">
-            {t(fort.name)}
-          </h3>
-          {fort.yearCaptured && (
-            <span className="text-xs text-stone-500 shrink-0">{fort.yearCaptured}</span>
-          )}
+          <div className="flex items-center gap-5 mt-5 pt-5 border-t border-white/5">
+            <span className="flex items-center gap-1.5 text-xs text-slate-400">
+              <Mountain className="w-4 h-4" style={{ color: 'var(--saffron)' }} />
+              {fort.altitude}m
+            </span>
+            <span className="flex items-center gap-1.5 text-xs text-slate-400">
+              <Clock className="w-4 h-4" style={{ color: 'var(--saffron)' }} />
+              {t(fort.trekDuration)}
+            </span>
+            <span className="ml-auto flex items-center gap-1 text-xs font-semibold transition-all group-hover:gap-2" style={{ color: 'var(--gold)' }}>
+              {t({ mr: 'पहा', en: 'Visit' })}
+              <ArrowUpRight className="w-4 h-4" />
+            </span>
+          </div>
         </div>
-
-        <p className="flex items-center gap-1.5 text-sm text-stone-500 mt-1.5">
-          <MapPin className="w-3.5 h-3.5" style={{ color: 'var(--saffron)' }} />
-          {t(fort.district)}
-        </p>
-
-        {/* Quick Facts */}
-        <div className="flex items-center gap-5 mt-4 pt-4 border-t border-white/5">
-          <span className="flex items-center gap-1.5 text-xs text-stone-400">
-            <Mountain className="w-3.5 h-3.5" style={{ color: 'var(--gold)' }} />
-            {fort.altitude}m
-          </span>
-          <span className="flex items-center gap-1.5 text-xs text-stone-400">
-            <Clock className="w-3.5 h-3.5" style={{ color: 'var(--gold)' }} />
-            {t(fort.trekDuration)}
-          </span>
-          <span className="text-xs text-stone-400">
-            {t(fort.bestSeason)}
-          </span>
-        </div>
-      </div>
-    </Link>
+      </Link>
+    </motion.div>
   );
 }

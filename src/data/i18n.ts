@@ -113,3 +113,15 @@ export const ui: Record<string, BilingualText> = {
   footerDesc: { mr: 'स्वराज्याचा वारसा शोधा. महाराष्ट्राच्या ऐतिहासिक किल्ल्यांबद्दल जाणून घ्या.', en: 'Explore the legacy of Swarajya. Discover Maharashtra\'s historic forts.' },
   footerCopyright: { mr: '© स्वराज्य एक्सप्लोरर. महाराष्ट्राच्या वारशासाठी ❤️ ने बनवले.', en: '© Swarajya Explorer. Built with ❤️ for Maharashtra\'s heritage.' },
 };
+
+// Heritage Experiences
+ui.expAudio = { mr: 'ऑडिओ मार्गदर्शक', en: 'Audio Guides' };
+ui.expAudioDesc = { mr: 'प्रत्येक किल्ल्याची मराठी ऑडिओ कथा ऐका.', en: 'Listen to Marathi audio narration for every fort.' };
+ui.expTrek = { mr: 'ट्रेक प्लॅनर', en: 'Trek Planner' };
+ui.expTrekDesc = { mr: 'कठीणता, कालावधी आणि हंगामासह तुमचा ट्रेक नियोजित करा.', en: 'Plan your trek with difficulty, duration, and season info.' };
+ui.expStories = { mr: 'ऐतिहासिक कथा', en: 'Historical Stories' };
+ui.expStoriesDesc = { mr: 'स्वराज्याच्या वीरगाथा आणि लढायांचा अनुभव घ्या.', en: 'Experience the heroic tales and battles of Swarajya.' };
+ui.expVirtual = { mr: 'व्हर्च्युअल टूर', en: 'Virtual Tours' };
+ui.expVirtualDesc = { mr: 'घरबसल्या किल्ल्यांचा ३६०° अनुभव घ्या.', en: 'Experience 360° fort tours from your home.' };
+ui.expMaps = { mr: 'किल्ला नकाशे', en: 'Fort Maps' };
+ui.expMapsDesc = { mr: 'मार्ग, पाणी स्रोत आणि महत्त्वाची ठिकाणे पहा.', en: 'View routes, water points, and key locations.' };
