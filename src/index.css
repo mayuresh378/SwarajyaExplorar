@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&family=Mukta:wght@200;300;400;500;600;700;800&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -33,7 +33,7 @@
 
   body {
     @apply antialiased;
-    font-family: 'Inter', 'Tiro Devanagari Marathi', sans-serif;
+    font-family: 'Inter', 'Mukta', sans-serif;
     background: var(--parchment);
     background-image:
       radial-gradient(ellipse at top, rgba(176, 128, 32, 0.08), transparent 60%),
@@ -43,13 +43,25 @@
     overflow-x: hidden;
   }
 
+  /* Use Mukta for all Devanagari text automatically */
+  :lang(mr), [lang="mr"] {
+    font-family: 'Mukta', 'Inter', sans-serif;
+  }
+
   h1, h2, h3, h4 {
-    font-family: 'Playfair Display', 'Tiro Devanagari Marathi', serif;
+    font-family: 'Playfair Display', 'Mukta', serif;
     letter-spacing: -0.02em;
     color: var(--ink);
   }
 
+  /* Force Mukta for Devanagari headings */
+  h1:lang(mr), h2:lang(mr), h3:lang(mr), h4:lang(mr) {
+    font-family: 'Mukta', 'Playfair Display', serif;
+    font-weight: 700;
+  }
+
   .font-display { font-family: 'Cinzel', serif; }
+  .font-marathi { font-family: 'Mukta', sans-serif; }
 }
 
 @layer components {

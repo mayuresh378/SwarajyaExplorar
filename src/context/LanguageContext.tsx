@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Language, BilingualText } from '../types';
 
 interface LanguageContextType {
@@ -19,7 +19,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem('swarajya-lang', lang);
+    document.documentElement.lang = lang;
   };
+
+  // Sync lang attribute on initial load and language change
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   const t = (text: BilingualText): string => {
     const primary = text[language];
