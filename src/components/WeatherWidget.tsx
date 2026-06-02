@@ -17,7 +17,6 @@ export default function WeatherWidget({ latitude, longitude, fortName }: Weather
     async function fetchWeather() {
       try {
         setLoading(true);
-        // Using Open-Meteo API (free, no API key required)
         const response = await fetch(
           `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code`
         );
@@ -39,56 +38,52 @@ export default function WeatherWidget({ latitude, longitude, fortName }: Weather
           windSpeed: data.current.wind_speed_10m,
           icon: weatherCode <= 3 ? '☀️' : weatherCode <= 48 ? '🌫️' : weatherCode <= 67 ? '🌧️' : '⛈️',
         });
-      } catch (err) {
+      } catch {
         setError('Unable to load weather');
       } finally {
         setLoading(false);
       }
     }
-
     fetchWeather();
   }, [latitude, longitude]);
 
   if (loading) {
     return (
-      <div className="bg-blue-50 rounded-xl p-4 animate-pulse">
-        <div className="h-4 bg-blue-200 rounded w-1/2 mb-2"></div>
-        <div className="h-8 bg-blue-200 rounded w-1/3"></div>
+      <div className="heritage-card-bg rounded-lg p-4 animate-pulse">
+        <div className="h-4 bg-amber-900/30 rounded w-1/2 mb-2"></div>
+        <div className="h-8 bg-amber-900/30 rounded w-1/3"></div>
       </div>
     );
   }
 
   if (error || !weather) {
     return (
-      <div className="bg-stone-100 rounded-xl p-4 text-stone-500 text-sm">
-        <Cloud className="w-5 h-5 mb-1" />
+      <div className="heritage-card-bg rounded-lg p-4 text-stone-500 text-sm">
+        <Cloud className="w-5 h-5 mb-1 text-stone-600" />
         Weather data unavailable
       </div>
     );
   }
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-sky-50 rounded-xl p-4 border border-blue-100">
-      <h4 className="text-sm font-medium text-blue-800 mb-2">Weather at {fortName}</h4>
+    <div className="heritage-card-bg rounded-lg p-5">
+      <p className="text-xs text-amber-500 uppercase tracking-wider font-semibold mb-3">Weather at {fortName}</p>
       <div className="flex items-center gap-3">
         <span className="text-3xl">{weather.icon}</span>
         <div>
-          <p className="text-2xl font-bold text-stone-900">{weather.temperature}°C</p>
-          <p className="text-sm text-stone-600">{weather.description}</p>
+          <p className="text-2xl font-bold text-amber-100">{weather.temperature}°C</p>
+          <p className="text-sm text-stone-400">{weather.description}</p>
         </div>
       </div>
-      <div className="flex items-center gap-4 mt-3 pt-3 border-t border-blue-100">
-        <span className="flex items-center gap-1 text-xs text-stone-600">
-          <Thermometer className="w-3.5 h-3.5" />
-          {weather.temperature}°C
+      <div className="flex items-center gap-4 mt-4 pt-3 border-t border-amber-900/20">
+        <span className="flex items-center gap-1 text-xs text-stone-500">
+          <Thermometer className="w-3.5 h-3.5 text-amber-600" />{weather.temperature}°C
         </span>
-        <span className="flex items-center gap-1 text-xs text-stone-600">
-          <Droplets className="w-3.5 h-3.5" />
-          {weather.humidity}%
+        <span className="flex items-center gap-1 text-xs text-stone-500">
+          <Droplets className="w-3.5 h-3.5 text-amber-600" />{weather.humidity}%
         </span>
-        <span className="flex items-center gap-1 text-xs text-stone-600">
-          <Wind className="w-3.5 h-3.5" />
-          {weather.windSpeed} km/h
+        <span className="flex items-center gap-1 text-xs text-stone-500">
+          <Wind className="w-3.5 h-3.5 text-amber-600" />{weather.windSpeed} km/h
         </span>
       </div>
     </div>
