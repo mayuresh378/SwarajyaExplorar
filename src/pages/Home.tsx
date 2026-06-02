@@ -27,18 +27,29 @@ export default function Home() {
 
         {/* Layer 3: Cinematic fort photography */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 animate-ken-burns">
+          {/* Mobile: full background */}
+          <div className="absolute inset-0 animate-ken-burns md:hidden">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Raigad_Fort_Aerial.jpg/1280px-Raigad_Fort_Aerial.jpg"
-              alt="Raigad Fort"
-              className="w-full h-full object-cover"
+              src="/hero-shivaji-silhouette.jpeg"
+              alt="Chhatrapati Shivaji Maharaj"
+              className="w-full h-full object-cover object-center"
             />
           </div>
-          {/* Cinematic color grade + depth */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/75 to-slate-900/45"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-slate-900/40"></div>
+          {/* Desktop: anchored to the right as a cinematic focal point */}
+          <div className="absolute inset-y-0 right-0 w-full md:w-3/5 hidden md:block">
+            <div className="absolute inset-0 animate-ken-burns">
+              <img
+                src="/hero-shivaji-silhouette.jpeg"
+                alt="Chhatrapati Shivaji Maharaj"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+          </div>
+          {/* Cinematic color grade + depth blending */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/85 to-slate-900/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/10 to-slate-900/40"></div>
           {/* Mountain depth vignette */}
-          <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 200px 60px rgba(15, 23, 42, 0.9)' }}></div>
+          <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 220px 70px rgba(15, 23, 42, 0.85)' }}></div>
         </div>
 
         {/* Golden sunrise lighting */}
