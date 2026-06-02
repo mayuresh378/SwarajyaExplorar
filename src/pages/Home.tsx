@@ -267,10 +267,22 @@ export default function Home() {
 
       {/* ============ STORYTELLING ============ */}
       <section className="section-spacing relative overflow-hidden">
-        {/* MASSIVE Swarajya map watermark */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.08]" style={{ color: 'var(--maroon)' }}>
-          <SwarajyaMap className="w-[1200px] h-[800px] max-w-none" />
-        </div>
+        {/* MASSIVE Maratha Empire Map watermark */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: 'url(/maratha-empire-map.png)',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            backgroundSize: 'contain',
+            opacity: 0.12,
+            filter: 'sepia(80%) saturate(1.4) hue-rotate(-10deg) contrast(1.05)',
+          }}
+        ></div>
+        {/* Color wash overlay to harmonize with parchment */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'radial-gradient(ellipse at center, transparent 0%, rgba(243, 229, 200, 0.6) 80%)'
+        }}></div>
         {/* Ancient compass small corner */}
         <div className="absolute top-12 right-12 w-32 h-32 opacity-25 pointer-events-none" style={{ color: 'var(--gold)' }}>
           <AncientCompass className="w-full h-full" />

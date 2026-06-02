@@ -25,6 +25,7 @@ export const forts: Fort[] = [
     waterAvailability: true,
     campingAllowed: true,
     images: [
+      '/images/raigad/cover.jpg',
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Raigad_Fort_Aerial.jpg/1280px-Raigad_Fort_Aerial.jpg',
     ],
     yearCaptured: 1656,
