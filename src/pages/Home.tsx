@@ -162,8 +162,9 @@ export default function Home() {
       </section>
 
       {/* ============ STATISTICS ============ */}
-      <section className="py-24 section-parchment relative" style={{ borderTop: '1px solid rgba(168,122,30,0.2)', borderBottom: '1px solid rgba(168,122,30,0.2)' }}>
-        <div className="container-premium">
+      <section className="py-24 section-rich relative">
+        <div className="absolute inset-0 pattern-overlay opacity-40"></div>
+        <div className="container-premium relative">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {[
               { end: 300, suffix: '+', label: t({ mr: 'किल्ले', en: 'Forts' }) },
@@ -175,7 +176,7 @@ export default function Home() {
                 <p className="text-4xl md:text-5xl font-bold gold-text font-display">
                   <Counter end={stat.end} suffix={stat.suffix} />
                 </p>
-                <p className="text-sm text-ink-soft mt-3 uppercase tracking-wider">{stat.label}</p>
+                <p className="text-sm text-ink-soft mt-3 uppercase tracking-wider font-medium">{stat.label}</p>
               </Reveal>
             ))}
           </div>
@@ -243,14 +244,14 @@ export default function Home() {
       <TreasuresShowcase />
 
       {/* ============ HERITAGE EXPERIENCES ============ */}
-      <section className="section-spacing section-parchment relative" style={{ borderTop: '1px solid rgba(168,122,30,0.2)', borderBottom: '1px solid rgba(168,122,30,0.2)' }}>
-        <div className="absolute inset-0 pattern-overlay opacity-50"></div>
+      <section className="section-spacing section-dark relative">
+        <div className="absolute inset-0 pattern-dark opacity-60"></div>
         <div className="container-premium relative">
           <div className="text-center mb-16 max-w-2xl mx-auto">
             <Reveal>
-              <p className="eyebrow mb-4 justify-center">{t({ mr: 'अनुभव', en: 'Experiences' })}</p>
-              <h2 className="heading-lg mb-4">{t({ mr: 'वारसा अनुभव', en: 'Heritage Experiences' })}</h2>
-              <p className="text-ink-soft text-lg">{t({ mr: 'इतिहास अनुभवण्याचे अनेक मार्ग', en: 'Multiple ways to experience history' })}</p>
+              <p className="text-xs uppercase tracking-[0.3em] font-semibold mb-4 justify-center inline-flex items-center gap-2" style={{ color: 'var(--gold-bright)' }}>{t({ mr: 'अनुभव', en: 'Experiences' })}</p>
+              <h2 className="heading-lg mb-4" style={{ color: 'var(--surface)' }}>{t({ mr: 'वारसा अनुभव', en: 'Heritage Experiences' })}</h2>
+              <p className="text-lg" style={{ color: 'rgba(255, 246, 227, 0.7)' }}>{t({ mr: 'इतिहास अनुभवण्याचे अनेक मार्ग', en: 'Multiple ways to experience history' })}</p>
             </Reveal>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -263,12 +264,12 @@ export default function Home() {
               { icon: Castle, title: t(ui.featurePassport), desc: t(ui.featurePassportDesc) },
             ].map((exp, i) => (
               <Reveal key={i} delay={i * 0.08}>
-                <div className="card-premium p-8 h-full group">
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110" style={{ background: 'linear-gradient(135deg, rgba(194, 65, 12, 0.12), rgba(122, 20, 24, 0.08))', border: '1px solid rgba(194, 65, 12, 0.2)' }}>
-                    <exp.icon className="w-6 h-6" style={{ color: 'var(--saffron)' }} />
+                <div className="rounded-2xl p-8 h-full group transition-all duration-500 hover:-translate-y-1" style={{ background: 'rgba(255, 246, 227, 0.04)', border: '1px solid rgba(212, 164, 55, 0.2)', backdropFilter: 'blur(10px)' }}>
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110" style={{ background: 'linear-gradient(135deg, rgba(212, 164, 55, 0.25), rgba(194, 65, 12, 0.15))', border: '1px solid rgba(212, 164, 55, 0.4)' }}>
+                    <exp.icon className="w-6 h-6" style={{ color: 'var(--gold-bright)' }} />
                   </div>
-                  <h3 className="text-xl font-bold text-ink mb-3">{exp.title}</h3>
-                  <p className="text-ink-soft leading-relaxed">{exp.desc}</p>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: 'var(--surface)' }}>{exp.title}</h3>
+                  <p className="leading-relaxed" style={{ color: 'rgba(255, 246, 227, 0.7)' }}>{exp.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -301,8 +302,9 @@ export default function Home() {
       </section>
 
       {/* ============ TESTIMONIALS ============ */}
-      <section className="section-spacing section-parchment" style={{ borderTop: '1px solid rgba(168,122,30,0.2)', borderBottom: '1px solid rgba(168,122,30,0.2)' }}>
-        <div className="container-premium">
+      <section className="section-spacing section-rich relative">
+        <div className="absolute inset-0 pattern-overlay opacity-30"></div>
+        <div className="container-premium relative">
           <div className="text-center mb-16">
             <Reveal>
               <p className="eyebrow mb-4 justify-center">{t({ mr: 'प्रशंसापत्रे', en: 'Testimonials' })}</p>

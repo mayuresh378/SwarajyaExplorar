@@ -22,7 +22,7 @@ export default function App() {
     <LanguageProvider>
       <UserProvider>
         <BrowserRouter>
-          <div className="min-h-screen" style={{ background: '#F3E5C8' }}>
+          <div className="min-h-screen">
             <SuvicharBar />
             <Navbar />
             <PageWrapper>
