@@ -54,6 +54,7 @@ export const forts: Fort[] = [
     waterAvailability: true,
     campingAllowed: false,
     images: [
+      '/images/pratapgad/cover.jpg',
       'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Pratapgad_fort.jpg/1280px-Pratapgad_fort.jpg',
     ],
     yearCaptured: 1656,

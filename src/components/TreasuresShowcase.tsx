@@ -14,7 +14,7 @@ const treasures: Treasure[] = [
     num: '01',
     title: { mr: 'दुर्गवैभव : भव्य किल्ले', en: 'Durga Vaibhav: The Majestic Forts' },
     desc: { mr: 'महाराष्ट्रातील नऊ ऐतिहासिक किल्ल्यांचा शोध घ्या. प्रत्येक किल्ला शौर्य आणि सामरिक तेजाची थरारक कथा सांगतो — छत्रपती शिवाजी महाराजांच्या दूरदृष्टीचा साक्षीदार.', en: 'Explore nine historic forts of Maharashtra. Each fort depicts thrilling tales of valor and strategic brilliance — a testament to the vision of Chhatrapati Shivaji Maharaj.' },
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Raigad_Fort_Aerial.jpg/1280px-Raigad_Fort_Aerial.jpg',
+    image: '/images/treasures/durga-vaibhav.jpg',
   },
   {
     num: '02',
@@ -26,7 +26,7 @@ const treasures: Treasure[] = [
     num: '03',
     title: { mr: 'राज्याभिषेक सोहळा', en: 'The Coronation' },
     desc: { mr: '६ जून १६७४ रोजी रायगडावर झालेला छत्रपती शिवाजी महाराजांचा भव्य राज्याभिषेक. स्वराज्याच्या स्थापनेचा आणि सार्वभौमत्वाचा ऐतिहासिक क्षण पुन्हा अनुभवा.', en: 'The grand coronation of Chhatrapati Shivaji Maharaj at Raigad on June 6, 1674. Relive the historic moment of Swarajya\'s establishment and sovereignty.' },
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Rajgad_Balekilla.jpg/1280px-Rajgad_Balekilla.jpg',
+    image: '/images/treasures/coronation.jpg',
   },
   {
     num: '04',
